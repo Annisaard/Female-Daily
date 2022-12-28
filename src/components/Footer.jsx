@@ -2,6 +2,8 @@ import React from "react";
 import logo from "../assets/FD-Logo-Pink.png";
 import { BsFacebook, BsTwitter, BsInstagram, BsYoutube } from "react-icons/bs";
 import { FrameTop } from "./Banner";
+import apple from "../assets/app-store.png";
+import playstore from "../assets/google-play.png";
 const Footer = () => {
   return (
     <footer className="border-t border-gray-200 ">
@@ -9,7 +11,7 @@ const Footer = () => {
         <div className="flex flex-col flex-wrap pt-5">
           <div className="justify-between w-full lg:flex">
             <div className="w-full lg:w-1/3 md:w-1/2">
-              <ul className="mb-8 space-y-2 text-sm list-none font-bold tracking-wider hover:text-gray-800 ">
+              <ul className="mb-8 space-y-2 text-sm list-none font-bold tracking-wider text-gray-800 ">
                 <li>
                   <a href="#about">About Us</a>
                 </li>
@@ -22,7 +24,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full lg:w-1/3 md:w-1/2">
-              <ul className="mb-8 space-y-2 text-sm list-none font-bold tracking-wider">
+              <ul className="mb-8 space-y-2 text-sm list-none font-bold tracking-wider text-gray-800 ">
                 <li>
                   <a href="#about">Terms & Conditions</a>
                 </li>
@@ -35,7 +37,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-full lg:w-1/3 md:w-1/2">
-              <ul className="mb-8 space-y-2 text-sm list-none font-bold tracking-wider">
+              <ul className="mb-8 space-y-2 text-sm list-none font-bold tracking-wider text-gray-800 ">
                 <li>
                   <a href="#about">Awards</a>
                 </li>
@@ -45,15 +47,15 @@ const Footer = () => {
               </ul>
             </div>
             <div className="flex-shrink-0 w-80 mx-auto text-center md:mx-0 md:text-left">
-              <p className="flex items-center justify-center text-sm font-bold tracking-wider md:justify-start">
+              <p className="flex items-center justify-center text-sm font-bold tracking-wider md:justify-start text-gray-800 ">
                 Download Our Mobile App
               </p>
               <div className="flex justify-between py-2 -mx-2">
                 <div className="flex w-1/2 px-2">
-                  <img src={logo} alt="Ios Badges" />
+                  <img src={apple} alt="Ios Badges" />
                 </div>
                 <div className="flex w-1/2 px-2">
-                  <img src={logo} alt="Android Badges" />
+                  <img src={playstore} alt="Android Badges" />
                 </div>
               </div>
             </div>
@@ -69,16 +71,16 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex w-80 py-4">
-            <div className="mr-6">
+            <div className="mr-6 text-blue-700">
               <BsFacebook />
             </div>
-            <div className="mr-6">
+            <div className="mr-6 text-blue-900">
               <BsTwitter />
             </div>
-            <div className="mr-6">
+            <div className="mr-6 text-pink-600">
               <BsInstagram />
             </div>
-            <div className="mr-6">
+            <div className="mr-6 text-red-800">
               <BsYoutube />
             </div>
           </div>

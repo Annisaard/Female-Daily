@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Header from "components/Header";
 import { FrameTop, Billboard, FrameBox } from "components/Banner";
-import { CardEditor, CardProduct } from "components/Card";
-import Article from "components/Article";
+import { CardEditor, CardProduct, Article, CardPopular } from "components/Card";
+import gbrmatches from "../assets/matches-image.png";
+import { MdNavigateNext } from "react-icons/md";
+
 import Review from "components/Review";
-import Popular from "components/Popular";
 import Video from "components/Video";
 import Trending from "components/Trending";
 import Brands from "components/Brands";
 import Footer from "components/Footer";
-import axios from "axios";
-import { data } from "autoprefixer";
+
 function App() {
   const [editorsChoice, setEditorChoice] = useState([]);
   const [latestArticles, setLatestArticles] = useState([]);
@@ -37,9 +37,9 @@ function App() {
       <div className="mb-8">
         <FrameTop />
         <Billboard />
-        {/* <FrameBox /> */}
       </div>
-      <section className="mt-[5rem] container-two ">
+      {/* Editor Choice */}
+      <section className="pt-5 container-two ">
         <div className="mb-5">
           <h3 className="text-xl font-bold text-gray-800">Editor's Choice</h3>
           <p className="text-gray-400">Curated with love</p>
@@ -62,10 +62,13 @@ function App() {
           )}
         </div>
       </section>
+
+      {/* product */}
       <section className=" mt-[5rem] bg-[#FDDAE0] h-[22rem] items-center py-4 ">
-        <div className="flex justify-evenly">
-          <div className=" w-[15rem]">
-            <h2 className="font-bold text-lg text-gray-800">
+        <div className="flex ">
+          <img src={gbrmatches} alt="gbr2" width={270} height={30} />
+          <div className=" w-[15rem] mr-6">
+            <h2 className="font-bold text-xl text-gray-800">
               Looking for products that are just simply perfect for you?
             </h2>
             <p className="py-3 text-sm text-gray-700">
@@ -80,22 +83,41 @@ function App() {
             </div>
           </div>
           <div className=" w-1/2 grid grid-cols-3">
-            <CardProduct />
-            <CardProduct />
-            <CardProduct />
+            {loading ? (
+              <p>loading..</p>
+            ) : (
+              editorsChoice &&
+              editorsChoice
+                .slice(0, 3)
+                .map((item) => (
+                  <CardProduct
+                    nameProduct={item.product.name}
+                    rating={item.product.rating}
+                    desc={item.product.description}
+                    img={item.product.image}
+                  />
+                ))
+            )}
           </div>
         </div>
       </section>
       <div className="my-8">
         <Billboard />
       </div>
+
+      {/* article */}
       <section className="w-full py-[4rem] container-two">
         <h2 className="text-xl font-bold text-gray-800">Latest Article</h2>
         <div className="flex justify-between">
           <p className="text-gray-400">
             So you can make better purchase decision
           </p>
-          <p className="text-Pinky font-semibold">See more</p>
+          <p className="text-Pinky font-normal flex items-center">
+            See more
+            <span>
+              <MdNavigateNext size={20} className="ml-2" />
+            </span>
+          </p>
         </div>
         <div className="grid grid-cols-3 pt-7 gap-4">
           {loading ? (
@@ -113,35 +135,23 @@ function App() {
           )}
         </div>
       </section>
+
+      {/* latest review */}
       <section className="w-full container-two pb-9">
         <div className="flex  ">
           <div className="w-3/4  ">
-            <h2 className="text-xl font-bold text-gray-800">Popular Group</h2>
+            <h2 className="text-xl font-bold text-gray-800">Latest Review</h2>
             <div className="flex justify-between pb-4">
-              <p className="text-gray-400">
-                So you can make better purchase decision
+              <p className="text-gray-400">Where the beauty TALK are</p>
+              <p className="text-Pinky font-normal flex items-center">
+                See more
+                <span>
+                  <MdNavigateNext size={20} className="ml-2" />
+                </span>
               </p>
-              <p className="text-Pinky font-semibold mr-[5rem]">See more</p>
             </div>
             <div className="">
               <Review latestReviews={latestReviews} />
-              {/* {" "}
-              {loading ? (
-                <p>loading..</p>
-              ) : (
-                latestReviews &&
-                latestReviews?.map((item) => (
-                  <Review
-                    user={item.user}
-                    profile={item.profile}
-                    image={item.product.image}
-                    name={item.product.name}
-                    desc={item.product.description}
-                    star={item.star}
-                    comment={item.comment}
-                  />
-                ))
-              )} */}
             </div>
           </div>
           <div className="pt-16">
@@ -149,24 +159,32 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* popular */}
       <section className="w-full py-[4rem] container-two">
         <h2 className="text-xl font-bold text-gray-800">Popular Group</h2>
         <div className="flex justify-between">
-          <p className="text-gray-400">
-            So you can make better purchase decision
+          <p className="text-gray-400">Where the beauty TALK are</p>
+          <p className="text-Pinky font-normal flex items-center">
+            See more
+            <span>
+              <MdNavigateNext size={20} className="ml-2" />
+            </span>
           </p>
-          <p className="text-Pinky font-semibold">See more </p>
         </div>
         <div className="grid grid-cols-4 pt-7 gap-4">
-          <Popular />
-          <Popular />
-          <Popular />
-          <Popular />
+          <CardPopular />
+          <CardPopular />
+          <CardPopular />
+          <CardPopular />
         </div>
       </section>
+      {/* videoo */}
       <section className="container-two">
         <Video />
       </section>
+
+      {/* trending */}
       <section className="container-two pt-9">
         <div className="mb-5">
           <h3 className="text-xl font-bold text-gray-800">
@@ -176,13 +194,20 @@ function App() {
           <Trending />
         </div>
       </section>
+
+      {/* brands */}
       <section className="container-two py-9">
         <h2 className="text-xl font-bold text-gray-800">Top Brands</h2>
         <div className="flex justify-between pb-4">
           <p className="text-gray-400">
             So you can make better purchase decision
           </p>
-          <p className="text-Pinky font-semibold mr-[5rem]">See more</p>
+          <p className="text-Pinky font-normal flex items-center">
+            See more
+            <span>
+              <MdNavigateNext size={20} className="ml-2" />
+            </span>
+          </p>
         </div>
         <Brands />
       </section>

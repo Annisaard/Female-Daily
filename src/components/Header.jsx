@@ -12,7 +12,7 @@ const Header = () => {
   };
   return (
     <>
-      <nav className="border-b-[1.5px]  flex items-center w-full ">
+      <nav className="border-b-[1.5px]  flex items-center w-full  ">
         <div className="container flex justify-between">
           <div className=" flex items-center ">
             <span className="px-3 text-gray-500 ">
@@ -21,7 +21,7 @@ const Header = () => {
             <img src={logo} alt="Logo" width={150} height={35} />
           </div>
           <div className=" sm:hidden md:hidden lg:flex justify-center  py-2 ">
-            <button className="relative left-6 ml-3 text-gray-400 ">
+            <button className="relative left-6 ml-3 text-gray-400 cursor-pointer ">
               <FiSearch />
             </button>
             <input
@@ -31,7 +31,7 @@ const Header = () => {
           </div>
           <div className="bg-[#d01257] hover:bg-[#C61C40] py-2 px-5 flex items-center  ml-2">
             <img src={user} alt="icon" height={20} width={20} />
-            <button className=" text-white text-xs tracking-wider ml-2">
+            <button className=" text-white text-xs tracking-wider ml-2 cursor-pointer">
               LOGIN/SIGNUP
             </button>
           </div>
@@ -67,15 +67,15 @@ const Header = () => {
         </div> */}
       </nav>
       <div className=" border-b-[1.5px] py-3">
-        <ul className="flex justify-center gap-x-5 uppercase text-gray-800 font-medium">
-          <li>Skincare</li>
-          <li>Make Up</li>
-          <li>Body</li>
-          <li>Hair</li>
-          <li>Fragnance</li>
-          <li>Nails</li>
-          <li>Tools</li>
-          <li>Brands</li>
+        <ul className="flex justify-center gap-x-5 uppercase text-Hitam font-bold ">
+          <li className="hover:text-gray-300 cursor-pointer">Skincare</li>
+          <li className="hover:text-gray-300 cursor-pointer">Make Up</li>
+          <li className="hover:text-gray-300 cursor-pointer">Body</li>
+          <li className="hover:text-gray-300 cursor-pointer">Hair</li>
+          <li className="hover:text-gray-300 cursor-pointer">Fragnance</li>
+          <li className="hover:text-gray-300 cursor-pointer">Nails</li>
+          <li className="hover:text-gray-300 cursor-pointer">Tools</li>
+          <li className="hover:text-gray-300 cursor-pointer">Brands</li>
         </ul>
       </div>
     </>

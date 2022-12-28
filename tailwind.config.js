@@ -5,8 +5,9 @@ module.exports = {
       colors: {
         Pinky: "#DC294F",
         Hitam: "#0F0305",
+        Abu: "#D8D8D8",
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
